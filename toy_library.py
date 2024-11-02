@@ -109,7 +109,33 @@ def remove_toy(toy_index):
 
 
 # TODO: Define the print library function
+def print_library(status=None, view_details=False):
 
+    if status is not None:
+        toy_library_filtered = [(index, toy) for index, toy
+                                in enumerate(toy_library)
+                                if toy["status"] == status]
+    else:
+         toy_library_filtered = [(index, toy) for index, toy
+                                in enumerate(toy_library)]
+
+    # Print the toy library
+    for item in toy_library_filtered:
+        # Unpack the tuple
+        index, toy = item
+        # Print the toy index, name and status
+        print(f"{index}: {toy['toy']}")
+        print(f"Status: {toy['status']}")
+
+        # Print the detailed information if view_details is True
+        if view_details:
+            print(f"Type: {toy['type']}")
+            print(f"Checkout Count: {toy['checkout_count']}")
+            print(f"Replacement Cost: {toy['replacement_cost']:.2f}")
+            if toy['status'] == "Checked Out":
+                print(f"Checkout Date: {toy['checkout_date']}")
+                print(f"Due Date: {toy['due_date']}")
+            print("-" * 40)
 
 # TODO: Define a function to check if the user input is in the toy library
 
