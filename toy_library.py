@@ -138,7 +138,14 @@ def print_library(status=None, view_details=False):
             print("-" * 40)
 
 # TODO: Define a function to check if the user input is in the toy library
+def check_if_index_in_library(index):
 
+    if index.isdigit():
+        index = int(index)
+        if index < len(toy_library):
+            return index
+    print("Invalid index. Please try again.")
+    return None
 
 # Define the main function
 if __name__ == "__main__":
