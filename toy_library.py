@@ -86,7 +86,17 @@ def return_toy(toy_index):
     return True
 
 # TODO: Define the add_toy function
+def add_toy(toy, toy_type="", status="Available", replacement_cost=0.0):
 
+    toy_library.append({
+        "toy": toy,
+        "type": toy_type,
+        "status": status,
+        "checkout_date": "",
+        "due_date": "",
+        "checkout_count": 0,
+        "replacement_cost": replacement_cost
+    })
 
 # TODO: Define the remove_toy function
 
