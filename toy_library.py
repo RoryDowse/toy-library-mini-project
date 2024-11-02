@@ -99,6 +99,13 @@ def add_toy(toy, toy_type="", status="Available", replacement_cost=0.0):
     })
 
 # TODO: Define the remove_toy function
+def remove_toy(toy_index):
+
+    # Remove the toy from the toy library
+    toy = toy_library.pop(toy_index)
+
+    # Return the removed toy
+    return toy
 
 
 # TODO: Define the print library function
