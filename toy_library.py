@@ -234,9 +234,14 @@ if __name__ == "__main__":
                     print(f"Returned {toy_library[toy_index]['toy']}.")
                 else:
                     print(f"Failed to return {toy_library[toy_index]['toy']}.")
-
             # 3 - View toy library
+            elif choice == "3":
+                # View the toy library with full details
+                print_library()
             # 4 - View detailed toy library
+            elif choice == "4":
+                # View the toy library with full details
+                print_library(view_details=True)
             # 5 - Add a toy
             # 6 - Remove a toy
             # 7 - Exit
