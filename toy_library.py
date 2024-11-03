@@ -1,7 +1,9 @@
 """This script represents a toy library"""
 
 # Define the toy library collection globally
+# Toy library is a global list of dictionaries
 toy_library = [
+    # Each dictionary represents a toy.
     {
         "toy": "Barbie Extra Fashion Doll with Afro-Puffs",
         "type": "Doll",
@@ -34,6 +36,7 @@ toy_library = [
 
 # TODO: Define the checkout function
 def checkout(toy_index, checkout_date, due_date):
+    # Retrieves and checks if the toy is available
 
     # Get the toy from the toy library
     toy = toy_library[toy_index]
@@ -43,7 +46,7 @@ def checkout(toy_index, checkout_date, due_date):
         # If not, print a message and return False
         print(f"Sorry, {toy['toy']} is already checked out.")
         return False
-    # If it is, update status, checkout_date, due_date, and checkout_count
+    # If it is available, update status, checkout_date, due_date, and checkout_count
     else:
         toy["status"] = "Checked Out"
         toy["checkout_date"] = checkout_date
@@ -53,7 +56,7 @@ def checkout(toy_index, checkout_date, due_date):
     # Print a message 
     print(f"Checking out {toy['toy']}.")
 
-    # Update the toy library (optional: already handled)
+    # Update the toy library
     toy_library[toy_index] = toy
     
     # Return true
@@ -61,6 +64,7 @@ def checkout(toy_index, checkout_date, due_date):
 
 # TODO: Define the return_toy function
 def return_toy(toy_index):
+    # Retrieves and checks if the toy is already available
 
     # Get the toy from the toy library
     toy = toy_library[toy_index]
@@ -70,7 +74,7 @@ def return_toy(toy_index):
         # If not, print a message and return False
         print(f"Sorry, {toy['toy']} is already available.")
         return False
-    # If it is, update status, checkout_date, due_date
+    # If it is not available, update status, checkout_date, due_date
     else:
         toy["status"] = "Available"
         toy["checkout_date"] = ""
@@ -79,7 +83,7 @@ def return_toy(toy_index):
     # Print a message 
     print(f"Returning {toy['toy']}.")
 
-    # Update the toy library (optional: already handled)
+    # Update the toy library
     toy_library[toy_index] = toy
     
     # Return true
@@ -87,6 +91,7 @@ def return_toy(toy_index):
 
 # TODO: Define the add_toy function
 def add_toy(toy, toy_type="", status="Available", replacement_cost=0.0):
+# Adds a new toy dictionary to the toy library
 
     toy_library.append({
         "toy": toy,
@@ -100,6 +105,7 @@ def add_toy(toy, toy_type="", status="Available", replacement_cost=0.0):
 
 # TODO: Define the remove_toy function
 def remove_toy(toy_index):
+     # Removes and returns the toy at the specified index
 
     # Remove the toy from the toy library
     toy = toy_library.pop(toy_index)
@@ -111,6 +117,8 @@ def remove_toy(toy_index):
 # TODO: Define the print library function
 def print_library(status=None, view_details=False):
 
+    # Filter the toy library based on the status
+    # If status is None, then the toy library is unfiltered
     if status is not None:
         toy_library_filtered = [(index, toy) for index, toy
                                 in enumerate(toy_library)
@@ -139,6 +147,7 @@ def print_library(status=None, view_details=False):
 
 # TODO: Define a function to check if the user input is in the toy library
 def check_if_index_in_library(index):
+# Validates if the provided index exists in toy_library
 
     if index.isdigit():
         index = int(index)
