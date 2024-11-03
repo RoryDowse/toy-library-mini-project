@@ -173,3 +173,47 @@ if __name__ == "__main__":
     print("Welcome to the Toy Library!")
 
     # TODO: Implement the main menu loop
+    while True:
+        print("\nPlease select an option:")
+        for key, value in library_menu.items():
+            print(f"Option {key}: {value}")
+
+        # Get the user's choice
+        choice = input("Enter your choice: ").strip()
+
+        if choice in library_menu:
+            # Check the user's choice
+            # 1 - Checkout a toy
+            if choice == "1":
+                # Print the toys that are available to checkout
+                print_library("Available")
+                
+                # Check if the user input is in the toy library
+                toy_index = None
+                while toy_index is None:
+                    toy_index = input("Enter the index of the toy you want to checkout or press enter to return to the main menu: ")
+                    # Break the loop if the user presses Enter
+                    if toy_index is None:
+                        break
+                    toy_index = check_if_index_in_library(toy_index)
+                # Continue to the main menu if the user presses Enter
+                if toy_index is None:
+                    continue
+                # Get the checkout and due dates from the user
+                checkout_date = input("Enter the checkout date: ")
+                due_date = input("Enter the due date: ")
+                # Checkout a toy
+                result = checkout(toy_index, checkout_date, due_date)
+
+                # Print the result of the checkout
+                if result:
+                    print(f"Checked out {toy_library[toy_index]['toy']}.")
+                else:
+                    print(f"Failed to checkout {toy_library[toy_index]['toy']}.")
+            # 2 - Return a toy
+            # 3 - View toy library
+            # 4 - View detailed toy library
+            # 5 - Add a toy
+            # 6 - Remove a toy
+            # 7 - Exit
+    
