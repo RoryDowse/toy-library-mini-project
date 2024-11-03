@@ -211,6 +211,30 @@ if __name__ == "__main__":
                 else:
                     print(f"Failed to checkout {toy_library[toy_index]['toy']}.")
             # 2 - Return a toy
+            elif choice == "2":
+                # Print the toys that are checked out
+                print_library("Checked Out")
+
+                # Check if the user input is in the toy library
+                toy_index = None
+                while toy_index is None:
+                    toy_index = input("Enter the index of the toy you want to checkout or press enter to return to the main menu: ")
+                    # Break the loop if the user presses Enter
+                    if toy_index is None:
+                        break
+                    toy_index = check_if_index_in_library(toy_index)
+                # Continue to the main menu if the user presses Enter
+                if toy_index is None:
+                    continue
+                # Return a toy
+                result = return_toy(toy_index)
+
+                # Print the result of the return
+                if result:
+                    print(f"Returned {toy_library[toy_index]['toy']}.")
+                else:
+                    print(f"Failed to return {toy_library[toy_index]['toy']}.")
+
             # 3 - View toy library
             # 4 - View detailed toy library
             # 5 - Add a toy
