@@ -243,6 +243,27 @@ if __name__ == "__main__":
                 # View the toy library with full details
                 print_library(view_details=True)
             # 5 - Add a toy
+            elif choice == "5":
+                # Get the toy details from the user
+                toy = input("Enter the name of the toy or press enter to return to the main menu: ")
+                # Check if the toy is empty and if so, return to the main menu
+                if toy is None:
+                    continue
+                print("For the remaining information, press Enter if the information is not available.")
+                toy_type = input("Enter the type of the toy: ")
+                replacement_cost = input("Enter the replacement cost: ")
+
+                # Create a dictionary with the toy information
+                toy_to_add = {"toy": toy}
+                # Add the optional information if available
+                if toy_type:
+                    toy_to_add["toy_type"] = toy_type
+                if (replacement_cost and
+                        replacement_cost.replace(".", "", 1).isdigit()):
+                    toy_to_add["replacement_cost"] = float(replacement_cost)
+                add_toy(**toy_to_add)
+
+                print(f"Added {toy} to the toy library.")
             # 6 - Remove a toy
             # 7 - Exit
     
