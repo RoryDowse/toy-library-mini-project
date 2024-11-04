@@ -193,11 +193,11 @@ if __name__ == "__main__":
                 while toy_index is None:
                     toy_index = input("Enter the index of the toy you want to checkout or press enter to return to the main menu: ")
                     # Break the loop if the user presses Enter
-                    if toy_index is None:
+                    if toy_index == "":
                         break
                     toy_index = check_if_index_in_library(toy_index)
                 # Continue to the main menu if the user presses Enter
-                if toy_index is None:
+                if toy_index is None or toy_index == "":
                     continue
                 # Get the checkout and due dates from the user
                 checkout_date = input("Enter the checkout date: ")
@@ -220,11 +220,11 @@ if __name__ == "__main__":
                 while toy_index is None:
                     toy_index = input("Enter the index of the toy you want to checkout or press enter to return to the main menu: ")
                     # Break the loop if the user presses Enter
-                    if toy_index is None:
+                    if toy_index == "":
                         break
                     toy_index = check_if_index_in_library(toy_index)
                 # Continue to the main menu if the user presses Enter
-                if toy_index is None:
+                if toy_index is None or toy_index == "":
                     continue
                 # Return a toy
                 result = return_toy(toy_index)
@@ -247,7 +247,7 @@ if __name__ == "__main__":
                 # Get the toy details from the user
                 toy = input("Enter the name of the toy or press enter to return to the main menu: ")
                 # Check if the toy is empty and if so, return to the main menu
-                if toy is None:
+                if not toy:
                     continue
                 print("For the remaining information, press Enter if the information is not available.")
                 toy_type = input("Enter the type of the toy: ")
@@ -275,11 +275,11 @@ if __name__ == "__main__":
                 while toy_index is None:
                     toy_index = input("Enter the index of the toy you want to checkout or press enter to return to the main menu: ")
                     # Break the loop if the user presses Enter
-                    if toy_index is None:
+                    if toy_index == "":
                         break
                     toy_index = check_if_index_in_library(toy_index)
                 # Continue to the main menu if the user presses Enter
-                if toy_index is None:
+                if toy_index is None or toy_index == "":
                     continue
                 # Remove a toy
                 removed_toy = remove_toy(toy_index)
