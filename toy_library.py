@@ -265,5 +265,37 @@ if __name__ == "__main__":
 
                 print(f"Added {toy} to the toy library.")
             # 6 - Remove a toy
+            elif choice == "6":
+                # Print the toy library
+                print("Current Toy Library:")
+                print_library()
+
+                print("Please select a toy to remove:")
+                toy_index = None
+                while toy_index is None:
+                    toy_index = input("Enter the index of the toy you want to checkout or press enter to return to the main menu: ")
+                    # Break the loop if the user presses Enter
+                    if toy_index is None:
+                        break
+                    toy_index = check_if_index_in_library(toy_index)
+                # Continue to the main menu if the user presses Enter
+                if toy_index is None:
+                    continue
+                # Remove a toy
+                removed_toy = remove_toy(toy_index)
+
+                # Print the removed toy
+                print(f"Removed {removed_toy['toy']} from the toy library.")
+
             # 7 - Exit
+            elif choice == "7":
+                # Exit the program
+                print("Goodbye!")
+                break
+        else:
+            print("Invalid choice. Please try again.")
+            continue
+
+        # Wait for the use to press Enter before continuing
+        input("Press Enter to return to the main menu...")
     
